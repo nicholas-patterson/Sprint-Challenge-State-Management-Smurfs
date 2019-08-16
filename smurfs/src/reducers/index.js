@@ -23,6 +23,17 @@ export const smurfReducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload
       };
+    case "ADD_SMURF_START":
+      return {
+        ...state,
+        isLoading: true
+      };
+
+    case "ADD_SMURF_SUCCESS":
+      return {
+        ...state,
+        smurfs: action.payload
+      };
     default:
       return state;
   }
