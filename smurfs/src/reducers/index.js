@@ -1,5 +1,6 @@
 const initialState = {
   smurfs: [],
+  smurfToEdit: [],
   isLoading: false,
   error: ""
 };
@@ -32,6 +33,33 @@ export const smurfReducer = (state = initialState, action) => {
     case "ADD_SMURF_SUCCESS":
       return {
         ...state,
+        smurfs: action.payload
+      };
+    case "DELETE_SMURF_START":
+      return {
+        ...state,
+        isLoading: true
+      };
+
+    case "EDIT_SMURF_SUCCESS":
+      const clickedSmurf = state.smurfs.filter(
+        smurf => smurf.id === action.payload
+      );
+      console.log(clickedSmurf);
+      // const smurf = clickedSmurf.filter(smurf => {
+      //   return smurf.id === action.payload ? { ...smurf, smurf } : smurf;
+      // });
+      return {
+        ...state,
+        isLoading: false,
+        smurfs: action.payload,
+        smurfToEdit: clickedSmurf
+      };
+
+    case "DELETE_SMURF_SUCCESS":
+      return {
+        ...state,
+        isLoading: false,
         smurfs: action.payload
       };
     default:
