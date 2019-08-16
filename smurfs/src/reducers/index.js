@@ -45,10 +45,7 @@ export const smurfReducer = (state = initialState, action) => {
       const clickedSmurf = state.smurfs.filter(
         smurf => smurf.id === action.payload
       );
-      console.log(clickedSmurf);
-      // const smurf = clickedSmurf.filter(smurf => {
-      //   return smurf.id === action.payload ? { ...smurf, smurf } : smurf;
-      // });
+
       return {
         ...state,
         isLoading: false,

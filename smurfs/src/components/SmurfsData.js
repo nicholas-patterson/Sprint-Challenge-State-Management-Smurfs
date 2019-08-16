@@ -22,7 +22,6 @@ const SmurfsData = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     smurfs: state.smurfs
   };

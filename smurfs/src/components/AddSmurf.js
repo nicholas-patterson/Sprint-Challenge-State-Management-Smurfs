@@ -7,6 +7,13 @@ const AddSmurfToDB = props => {
 
   const handleChange = e => {
     setSmurf({ ...smurf, [e.target.name]: e.target.value });
+
+    return e.target.name === "age"
+      ? setSmurf({
+          ...smurf,
+          age: parseInt(e.target.value)
+        })
+      : null;
   };
 
   const handleSubmit = e => {
